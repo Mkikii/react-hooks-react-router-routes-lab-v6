@@ -1,16 +1,31 @@
-import { useEffect, useState } from "react";
+import { createBrowserRouter } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import Directors from "./pages/Directors.jsx";
+import Actors from "./pages/Actors.jsx";
+import Movie from "./pages/Movie.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 
-function Home() {
-  return (
-    <>
-      <header>
-        {/* What component should go here? */}
-      </header>
-      <main>
-        {/* Info goes here! */}
-      </main>
-    </>
-  );
-};
+const routes = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/directors",
+    element: <Directors />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/actors", 
+    element: <Actors />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/movie/:id",
+    element: <Movie />,
+    errorElement: <ErrorPage />
+  }
+]);
 
-export default Home;
+export default routes;
